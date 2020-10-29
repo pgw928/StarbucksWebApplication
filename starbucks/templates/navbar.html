@@ -1,0 +1,62 @@
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="/" >Starbucks <img src="/static/images/logo_orange.png"></a>
+<!--			  <small>Blend</small>-->
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+			  <ul class="navbar-nav ml-auto">
+				  <!-----------home----------->
+				  {% if request.resolver_match.url_name == 'home' %}
+				  <li class="nav-item active"><a href="{% url 'home' %}" class="nav-link">Home</a></li>
+				  {% else %}
+				  <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Home</a></li>
+				  {%endif%}
+				  <!-----------menu----------->
+				  {% if request.resolver_match.url_name == 'menu' %}
+				  <li class="nav-item active"><a href="{% url 'order:menu' %}"  class="nav-link">Menu</a></li>
+				  {% else %}
+				  <li class="nav-item"><a href="{% url 'order:menu' %}" class="nav-link">Menu</a></li>
+				  {% endif%}
+				  				    <!-------My Starbucks------->
+				  {% if request.session.check == 1%}
+				      {% if request.resolver_match.url_name == 'information' or request.resolver_match.url_name == 'history'%}
+				          <li class="nav-item active"><a href="{% url 'membership:information' request.session.user_n%}" class="nav-link" >My Starbucks</a></li>
+				      {%else%}
+				  	      <li class="nav-item"><a href="{% url 'membership:information' request.session.user_n%}" class="nav-link" >My Starbucks</a></li>
+				      {%endif%}
+				  {% endif %}
+				  <!-----------voc------------>
+				  {% if request.resolver_match.url_name == 'voc' %}
+				  <li class="nav-item active"><a href="{% url 'accounts:list' %}" class="nav-link">VOC</a></li>
+				  {% else %}
+				  <li class="nav-item"><a href="{% url 'accounts:list' %}" class="nav-link">VOC</a></li>
+				  {% endif %}
+				  <!-----------logout----------->
+				  {% if request.session.check == 1 %}
+				      {% if request.resolver_match.url_name == 'logout' %}
+					  <li class="nav-item active"><a href="{% url 'accounts:logout' %}" class="nav-link">Logout</a></li>
+				      {% else %}
+				  	  <li class="nav-item"><a href="{% url 'accounts:logout' %}" class="nav-link">Logout</a></li>
+				      {% endif %}
+				  <!-----------cart------------>
+				  <li class="nav-item cart"><a href="{% url 'order:cart' %}" class="nav-link"><span class="icon icon-shopping_cart"></span></a></li>
+				  <!-----------login----------->
+				  {% else %}
+				      {% if request.resolver_match.url_name == 'login' %}
+				  	  <li class="nav-item active"><a href="{% url 'accounts:login' %}" class="nav-link">Login</a></li>
+				  	  {% else %}
+	          		  <li class="nav-item"><a href="{% url 'accounts:login' %}" class="nav-link">Login</a></li>
+				  	  {% endif%}
+				  	  <!-----------signup----------->
+				  	  {% if request.resolver_match.url_name == 'signup' %}
+				      <li class="nav-item active"><a href="{% url 'accounts:signup' %}" class="nav-link">Signup</a></li>
+				      {% else%}
+				      <li class="nav-item "><a href="{% url 'accounts:signup' %}" class="nav-link">Signup</a></li>
+				      {% endif %}
+				  {% endif %}
+	        </ul>
+	      </div>
+		  </div>
+	  </nav>

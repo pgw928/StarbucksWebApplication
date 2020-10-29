@@ -1,0 +1,397 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Starbucks Project</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
+
+    <link rel="stylesheet" href="static/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/animate.css">
+
+    <link rel="stylesheet" href="static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="static/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="static/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="static/css/aos.css">
+
+    <link rel="stylesheet" href="static/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="static/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="static/css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="static/css/flaticon.css">
+    <link rel="stylesheet" href="static/css/icomoon.css">
+    <link rel="stylesheet" href="static/css/style.css">
+  </head>
+  <body>
+  {% include "navbar.html"  %}
+    <!-- END nav -->
+	<!--글귀 section 박근웅 수정 -->
+    <section class="home-slider owl-carousel">
+      <div class="slider-item" style="background-image: url(static/images/bg_1.jpg);">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+
+            <div class="col-md-8 col-sm-12 text-center ftco-animate">
+            	<span class="subheading">Welcome</span>
+              <h1 class="mb-4">THE BEST COFFEE. STARBUCKS COFFEE FINDER.</h1>
+              <p class="mb-4 mb-md-5">Our coffee masters have distilled their years of tasting knowledge down to three simple questions to help you find a Starbucks coffee you’re sure to love.</p>
+				{% if request.session.check == 1%}
+				<p><a href="{% url 'order:cart' %}" class="btn btn-primary p-3 px-xl-4 py-xl-3">Order Now</a> <a href="{% url 'order:menu' %}" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">View Menu</a></p>
+                {%else%}
+				<p><a href="{% url 'accounts:login' %}"  class="btn btn-primary p-3 px-xl-4 py-xl-3">Order Now</a> <a href="{% url 'order:menu' %}" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">View Menu</a></p>
+				{%endif%}
+			</div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-item" style="background-image: url(static/images/bg_2.JPG);">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+
+            <div class="col-md-8 col-sm-12 text-center ftco-animate">
+            	<span class="subheading">Welcome</span>
+              <h1 class="mb-4">EXPLORE OUR COFFEE</h1>
+              <p class="mb-4 mb-md-5">Everything we do is in the name of coffee. This is the culmination of it all—our pursuit of the highest state of coffee experience, our relentless and ongoing innovation—all captured in your cup.</p>
+              <p><a href="{% url 'order:cart' %}" class="btn btn-primary p-3 px-xl-4 py-xl-3">Order Now</a> <a href="{% url 'order:menu' %}" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">View Menu</a></p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-item" style="background-image: url(static/images/bg_3.JPG);">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+
+            <div class="col-md-8 col-sm-12 text-center ftco-animate">
+            	<span class="subheading">Welcome</span>
+              <h1 class="mb-4">Expect More Than Coffee.</h1>
+              <p class="mb-4 mb-md-5">We’re not just passionate purveyors of coffee, but everything else that goes with a full and rewarding coffeehouse experience.</p>
+              <p><a href="{% url 'order:cart' %}" class="btn btn-primary p-3 px-xl-4 py-xl-3">Order Now</a> <a href="{% url 'order:menu' %}" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">View Menu</a></p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="ftco-about d-md-flex">
+    	<div class="one-half img" style="background-image: url(static/images/about.JPG);"></div>
+    	<div class="one-half ftco-animate">
+    		<div class="overlap">
+	        <div class="heading-section ftco-animate ">
+	        	<span class="subheading">Discover</span>
+	          <h2 class="mb-4">Our Story</h2>
+	        </div>
+	        <div>
+	  				<p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
+	  			</div>
+  			</div>
+    	</div>
+    </section>
+
+    <section class="ftco-section ftco-services">
+    	<div class="container">
+    		<div class="row">
+          <div class="col-md-4 ftco-animate">
+            <div class="media d-block text-center block-6 services">
+              <div class="icon d-flex justify-content-center align-items-center mb-5">
+              	<span class="flaticon-choices"></span>
+              </div>
+              <div class="media-body">
+                <h3 class="heading">Easy to Order</h3>
+<!--                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>-->
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="media d-block text-center block-6 services">
+              <div class="icon d-flex justify-content-center align-items-center mb-5">
+              	<span class="flaticon-coffee-cup"></span>
+              </div>
+              <div class="media-body">
+                <h3 class="heading">Diverse drinks</h3>
+<!--                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>-->
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="media d-block text-center block-6 services">
+              <div class="icon d-flex justify-content-center align-items-center mb-5">
+              	<span class="flaticon-coffee-bean"></span></div>
+              <div class="media-body">
+                <h3 class="heading">Quality Coffee</h3>
+<!--                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>-->
+              </div>
+            </div>
+          </div>
+        </div>
+    	</div>
+    </section>
+
+    <section class="ftco-counter ftco-bg-dark img" id="section-counter" style="background-image: url(static/images/bg_2.JPG);" data-stellar-background-ratio="0.5">
+			<div class="overlay"></div>
+      <div class="container">
+        <div class="row justify-content-center">
+        	<div class="col-md-10">
+        		<div class="row">
+		          <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center">
+		              <div class="text">
+		              	<div class="icon"><span class="flaticon-coffee-cup"></span></div>
+		              	<strong class="number" data-number="1442">0</strong>
+		              	<span>Coffee Branches</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center">
+		              <div class="text">
+		              	<div class="icon"><span class="flaticon-coffee-cup"></span></div>
+		              	<strong class="number" data-number="170">0</strong>
+		              	<span>Number of Awards</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center">
+		              <div class="text">
+		              	<div class="icon"><span class="flaticon-coffee-cup"></span></div>
+		              	<strong class="number" data-number="6000000">0</strong>
+		              	<span>Happy Customer</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center">
+		              <div class="text">
+		              	<div class="icon"><span class="flaticon-coffee-cup"></span></div>
+		              	<strong class="number" data-number="291000">0</strong>
+		              	<span>Staff</span>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+        </div>
+      </div>
+    </section>
+
+		<section class="ftco-menu">
+    	<div class="container">
+    		<div class="row justify-content-center mb-5">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+          	<span class="subheading">Discover</span>
+            <h2 class="mb-4">Our Products</h2>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+          </div>
+        </div>
+    		<div class="row d-md-flex">
+	    		<div class="col-lg-12 ftco-animate p-md-5">
+		    		<div class="row">
+		          <div class="col-md-12 nav-link-wrap mb-5">
+		            <div class="nav ftco-animate nav-pills justify-content-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+		              <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">Coffee</a>
+
+		              <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false">Desserts</a>
+
+		              <a class="nav-link" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3" role="tab" aria-controls="v-pills-3" aria-selected="false">Goods</a>
+		            </div>
+		          </div>
+		          <div class="col-md-12 d-flex align-items-center">
+
+		            <div class="tab-content ftco-animate" id="v-pills-tabContent">
+		              <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-1-tab">
+
+		              	<div class="row">
+							{% for i in coffee %}
+		              		<div class="col-md-4 text-center">
+		              			<div class="menu-wrap">
+		              				<a href="order/{{ i.cd }}/detail?kind=coffee" class="menu-img img mb-4" style="background-image: url(/static/images/coffee/{{ i.cd }}.jpg);"></a>
+		              				<div class="text">
+		              					<h3><a href="order/{{ i.cd }}/detail?kind=coffee">{{ i.name }}</a></h3>
+		              					<p>{{ i.text }}</p>
+		              					<p class="price"><span>${{ i.price }}</span></p>
+		              					<p><a href="order/{{ i.cd }}/detail?kind=coffee" class="btn btn-primary btn-outline-primary">Add to cart</a></p>
+		              				</div>
+		              			</div>
+		              		</div>
+						  {% endfor %}
+		              	</div>
+		              </div>
+
+		              <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-2-tab">
+		                <div class="row">
+							{% for i in desserts %}
+		              		<div class="col-md-4 text-center">
+		              			<div class="menu-wrap">
+		              				<a href="order/{{ i.cd }}/detail?kind=desserts" class="menu-img img mb-4" style="background-image: url(/static/images/desserts/{{ i.cd }}.jpg);"></a>
+		              				<div class="text">
+		              					<h3><a href="order/{{ i.cd }}/detail?kind=desserts">{{ i.name }}</a></h3>
+		              					<p>{{ i.text }}</p>
+		              					<p class="price"><span>${{ i.price }}</span></p>
+		              					<p><a href="order/{{ i.cd }}/detail?kind=desserts" class="btn btn-primary btn-outline-primary">Add to cart</a></p>
+		              				</div>
+		              			</div>
+		              		</div>
+						  {% endfor %}
+		              	</div>
+		              </div>
+
+		              <div class="tab-pane fade" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-3-tab">
+		                <div class="row">
+							{% for i in goods %}
+		              		<div class="col-md-4 text-center">
+		              			<div class="menu-wrap">
+		              				<a href="order/{{ i.cd }}/detail?kind=goods" class="menu-img img mb-4" style="background-image: url(/static/images/goods/{{ i.cd }}.jpg);"></a>
+		              				<div class="text">
+		              					<h3><a href="order/{{ i.cd }}/detail?kind=goods">{{ i.name }}</a></h3>
+		              					<p>{{ i.text }}</p>
+		              					<p class="price"><span>${{ i.price }}</span></p>
+		              					<p><a href="order/{{ i.cd }}/detail?kind=goods" class="btn btn-primary btn-outline-primary">Add to cart</a></p>
+		              				</div>
+		              			</div>
+		              		</div>
+						  {% endfor %}
+		              	</div>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
+		</div>
+		</section>
+
+  <section class="ftco-section img" id="ftco-testimony" style="background-image: url(static/images/bg_1.jpg);"  data-stellar-background-ratio="0.5">
+	  <div class="overlay"></div>
+	  <div class="container">
+		  <div class="row justify-content-center mb-5">
+			  <div class="col-md-7 heading-section text-center ftco-animate">
+				  <span class="subheading">Testimony</span>
+				  <h2 class="mb-4">고객 리뷰</h2>
+			  </div>
+		  </div>
+	  </div>
+	  <div class="container-wrap">
+		  <div class="row d-flex no-gutters">
+			  {%if my_list5|length == 1 %}
+			  {%for r,u,h in my_list5%}
+			  <div class="col-lg align-self-sm-end ftco-animate">
+				  <div class="testimony">
+					  <blockquote>
+						  <p>{{r.comment}}</p>
+					  </blockquote>
+					  <div class="author d-flex mt-4">
+						  <div class="image mr-3 align-self-center">
+							  <img src="/static/images/{{h.category}}/{{h.cd}}.jpg" >
+						  </div>
+						  <div class="name align-self-center">{{u.user_id}}<span class="position">{{r.create_date|date:"Y-m-d"}}</span></div>
+					  </div>
+				  </div>
+			  </div>
+			  {%endfor%}
+			  <div class="col-lg align-self-sm-end ftco-animate">
+				  <div class="testimony">
+					  <blockquote>
+						  <p></p>
+					  </blockquote>
+					  <div class="author d-flex mt-4">
+						  <div class="image mr-3 align-self-center">
+							  <!--								<img src="/static/images/{{h.category}}/{{h.cd}}.jpg" >-->
+						  </div>
+						  <div class="name align-self-center"><span class="position"></span></div>
+					  </div>
+				  </div>
+			  </div>
+			  {%elif not my_list5%}
+			  <div class="col-lg align-self-sm-end ftco-animate">
+				  <div class="testimony">
+					  <blockquote>
+						  <p></p>
+					  </blockquote>
+					  <div class="author d-flex mt-4">
+						  <div class="image mr-3 align-self-center">
+						  </div>
+						  <div class="name align-self-center"><span class="position"></span></div>
+					  </div>
+				  </div>
+			  </div>
+			  <div class="col-lg align-self-sm-end ftco-animate">
+				  <div class="testimony">
+					  <blockquote>
+						  <p></p>
+					  </blockquote>
+					  <div class="author d-flex mt-4">
+						  <div class="image mr-3 align-self-center">
+						  </div>
+						  <div class="name align-self-center"><span class="position"></span></div>
+					  </div>
+				  </div>
+			  </div>
+			  {%else%}
+			  {%for r,u,h in my_list5%}
+			  <div class="col-lg align-self-sm-end ftco-animate">
+				  <div class="testimony">
+					  <blockquote>
+						  <p>{{r.comment}}</p>
+					  </blockquote>
+					  <div class="author d-flex mt-4">
+						  <div class="image mr-3 align-self-center">
+							  <img src="/static/images/{{h.category}}/{{h.cd}}.jpg" >
+						  </div>
+						  <div class="name align-self-center">{{u.user_id}}<span class="position">{{r.create_date|date:"Y-m-d"}}</span></div>
+					  </div>
+				  </div>
+			  </div>
+			  {%endfor%}
+			  {%endif%}
+		  </div>
+	  </div>
+  </section>
+  <!-- 노란리뷰 끝 -->
+
+
+  {% include "footer.html" %}
+
+
+
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="static/js/jquery.min.js"></script>
+  <script src="static/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="static/js/popper.min.js"></script>
+  <script src="static/js/bootstrap.min.js"></script>
+  <script src="static/js/jquery.easing.1.3.js"></script>
+  <script src="static/js/jquery.waypoints.min.js"></script>
+  <script src="static/js/jquery.stellar.min.js"></script>
+  <script src="static/js/owl.carousel.min.js"></script>
+  <script src="static/js/jquery.magnific-popup.min.js"></script>
+  <script src="static/js/aos.js"></script>
+  <script src="static/js/jquery.animateNumber.min.js"></script>
+  <script src="static/js/bootstrap-datepicker.js"></script>
+  <script src="static/js/jquery.timepicker.min.js"></script>
+  <script src="static/js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="static/js/google-map.js"></script>
+  <script src="static/js/main.js"></script>
+
+  </body>
+</html>

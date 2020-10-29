@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/static/css/css/addressSearch.css" />
+        <link rel="stylesheet" href="/static/css/css/address.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+            rel="stylesheet"
+        />
+        <title>Coffee | address</title>
+    </head>
+    <body>
+
+                {% if flag %}
+        <div class="address_search">
+                    <form name="search_adr" method="post">
+                                    {% csrf_token %}
+            <div class="address_search-bar">
+
+                <div class="address_search-input">
+                    <input
+                        class="search-input"
+                        type="text"
+                        placeholder="여기에 주소를 입력하세요"
+                        name = "input_search"
+                    />
+
+                </div>
+                <div class="adderss_search-icon">
+                    <input
+                        class="search-icon"
+                        type="image"
+                        src="https://img.icons8.com/fluent-systems-regular/24/000000/search.png"/>
+
+                </div>
+            </div>
+                         </form>
+
+            <div class="address_search-tip">
+                <strong>tip</strong>
+                <p class="search_p">
+                    지역 구 <br />
+                    <span class="example"> 예) 강남구</span>
+                </p>
+                <p class="search_p">
+                    지역명(동/리) <br />
+                    <span class="example">
+                        삼성동</span
+                    >
+                </p>
+                <p class="search_p">
+                    지역구 + 도로명 <br />
+                    <span class="example"> 예) 강남구 테헤란로</span>
+                </p>
+                 </div>
+
+        </div>
+                {% else %}
+        <div class="address_search">
+            <form name="search_adr" method="post">
+                                    {% csrf_token %}
+            <div class="address_search-bar">
+                <div class="address_search-input">
+                    <input
+                        class="search-input"
+                        type="text"
+                        name="input_search"
+                        placeholder="예) 판교역로"
+                    />
+                </div>
+                <div class="adderss_search-icon">
+                    <input
+                        class="search-icon"
+                        type="image"
+                        src="https://img.icons8.com/fluent-systems-regular/24/000000/search.png"
+                    />
+                </div>
+            </div>
+            </form>
+            <div class="address_search-tip">
+                <strong>아래와 같이 검색해 보세요.</strong>
+                <p>
+                    <span>'도로명',</span>
+                    <span>'지역명',</span>
+                    <span>'지역구',</span>
+                </p>
+            </div>
+
+                        {% if adr_list %}
+            <div class="address_search-list">
+                <ul>
+                        {% for adr in adr_list %}
+
+                    <li>
+                        <form name="insert_adr" method="get" action="{% url 'order:insert_adr' %}">
+                                    {% csrf_token %}
+                        <div class="list-head">
+                            <div class="post">
+                                <button class="post" onclick="submit_adr()">선택</button>
+                                </div>
+                            <input type="hidden" name="adrValue" value="{{ adr.name }}">
+                            <div class="option">
+                                <div class="option_en">영문보기</div>
+                                <div class="option_map">지도</div>
+                            </div>
+                        </div>
+
+                            <div class="list-location">
+                                <div class="location_title">도로명</div>
+                                <div>
+                                    <div> {{ adr.address }}</div>
+                                    </div>
+                            </div>
+                            <div class="list-location">
+                                <div class="location_title">매장명</div>
+                                <div>
+                                    {{ adr.name }}</div>
+                            </div>
+                            </form>
+                    </li>
+
+                        {% endfor %}
+
+                    <!--  더미데이터 실제 작업시엔 윗줄만 사용하면 됩니다. -->
+
+                </ul>
+            </div>
+
+                    {% endif %}
+        </div>
+                {% endif %}
+
+    </body>
+<script>
+    function submit_adr(){
+        document.insert_adr.action = "${pageContext.request.contextPath}";
+        document.insert_adr.submit();
+        window.open('about:blank','_self').close();
+    }
+</script>
+</html>
+
