@@ -13,6 +13,11 @@
 - 컨셉 : 스타벅스 어플리케이션에 있는 주요 기능인 주문시스템(Siren Order)을 기반으로web application server를 구축
 - 개발 환경 : Pycharm
 
+* Back-end : git, python, Django, crwaling
+* Front-end : HTML, jQuery, javascript, bootstrap
+
+
+
 
 
 #### 전체 프로젝트 구성
